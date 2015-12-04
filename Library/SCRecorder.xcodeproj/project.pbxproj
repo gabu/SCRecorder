@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		083F16C11C11791200F1DF1C /* SCProcessingQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD12A9E1B456C5E0064674D /* SCProcessingQueue.m */; };
+		083F16C21C11792000F1DF1C /* SCIOPixelBuffers.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD12AA31B45AA540064674D /* SCIOPixelBuffers.m */; };
+		08920BE21C117D3000715A95 /* SCFilterAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7A62BD1AFA47EC00EAB60C /* SCFilterAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		08920BE31C117DB600715A95 /* SCContext.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEE37881B17E6480019C7B5 /* SCContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		08920BE41C117E1800715A95 /* SCRecorderHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 90B02E411BCC00AC00559011 /* SCRecorderHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		08920BE51C117E8600715A95 /* SCFilterImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 90D4FBDD1BC6C1840017748D /* SCFilterImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		08920BEA1C117ED700715A95 /* NSURL+SCSaveToCameraRoll.h in Headers */ = {isa = PBXBuildFile; fileRef = 90B02E331BC995CD00559011 /* NSURL+SCSaveToCameraRoll.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		08920BEC1C117ED700715A95 /* UIImage+SCSaveToCameraRoll.h in Headers */ = {isa = PBXBuildFile; fileRef = 90B02E3D1BCC003D00559011 /* UIImage+SCSaveToCameraRoll.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		08920BED1C117ED700715A95 /* SCFilter+VideoComposition.h in Headers */ = {isa = PBXBuildFile; fileRef = 907931791BD2A06700D7D181 /* SCFilter+VideoComposition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		08920BEE1C117ED700715A95 /* SCFilter+UIImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 9079317D1BD451C200D7D181 /* SCFilter+UIImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		08EEF3591C312B250064D30A /* SCFilterImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D4FBDE1BC6C1840017748D /* SCFilterImageView.m */; };
 		9079317B1BD2A06700D7D181 /* SCFilter+VideoComposition.h in Headers */ = {isa = PBXBuildFile; fileRef = 907931791BD2A06700D7D181 /* SCFilter+VideoComposition.h */; };
 		9079317C1BD2A06700D7D181 /* SCFilter+VideoComposition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079317A1BD2A06700D7D181 /* SCFilter+VideoComposition.m */; };
 		9079317F1BD451C200D7D181 /* SCFilter+UIImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 9079317D1BD451C200D7D181 /* SCFilter+UIImage.h */; };
@@ -105,7 +116,6 @@
 		DCDC1E331AC799CF001DC3D9 /* SCRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = DC50285518E4FA5E004E833F /* SCRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCDC1E341AC799CF001DC3D9 /* SCRecordSessionSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = DC23C1C51AAF95600013E14C /* SCRecordSessionSegment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCDC1E351AC799CF001DC3D9 /* SCRecorderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DCF3A68E1AB9F4760034CF5C /* SCRecorderDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DCDC1E361AC799CF001DC3D9 /* SCRecorderFocusTargetView.h in Headers */ = {isa = PBXBuildFile; fileRef = DCA836EA18FC2C910058FE13 /* SCRecorderFocusTargetView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCDC1E371AC799CF001DC3D9 /* SCRecorderToolsView.h in Headers */ = {isa = PBXBuildFile; fileRef = DCBA8FE41A92B2FF00DD1A79 /* SCRecorderToolsView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCDC1E391AC799CF001DC3D9 /* SCSwipeableFilterView.h in Headers */ = {isa = PBXBuildFile; fileRef = DC933E89193814D1007E2E88 /* SCSwipeableFilterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCDC1E3C1AC799CF001DC3D9 /* SCImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = DCB04157192458C800D945D2 /* SCImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -113,7 +123,6 @@
 		DCDC1E3E1AC799CF001DC3D9 /* SCVideoPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = DCF6142A17D1527F00341EC2 /* SCVideoPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCDC1E401AC799CF001DC3D9 /* SCSampleBufferHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = DC1949BE19C07F1600E92A95 /* SCSampleBufferHolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCDC1E411AC799CF001DC3D9 /* SCAssetExportSession.h in Headers */ = {isa = PBXBuildFile; fileRef = DCB041651924663700D945D2 /* SCAssetExportSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DCDC1E421AC799CF001DC3D9 /* SCAudioTools.h in Headers */ = {isa = PBXBuildFile; fileRef = DCCAB6AB17B46C8900CEA47B /* SCAudioTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCDC1E431AC799CF001DC3D9 /* SCRecorderTools.h in Headers */ = {isa = PBXBuildFile; fileRef = DCC1FC471A4AF1DD00F1C653 /* SCRecorderTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCDC1E441AC799CF001DC3D9 /* SCFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = DC633E25192BCE0D00050796 /* SCFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCEE378A1B17E6480019C7B5 /* SCContext.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEE37881B17E6480019C7B5 /* SCContext.h */; };
@@ -561,7 +570,6 @@
 				DCDC1E331AC799CF001DC3D9 /* SCRecorder.h in Headers */,
 				DCDC1E341AC799CF001DC3D9 /* SCRecordSessionSegment.h in Headers */,
 				DCDC1E351AC799CF001DC3D9 /* SCRecorderDelegate.h in Headers */,
-				DCDC1E361AC799CF001DC3D9 /* SCRecorderFocusTargetView.h in Headers */,
 				DCDC1E371AC799CF001DC3D9 /* SCRecorderToolsView.h in Headers */,
 				DCDC1E391AC799CF001DC3D9 /* SCSwipeableFilterView.h in Headers */,
 				DCDC1E3C1AC799CF001DC3D9 /* SCImageView.h in Headers */,
@@ -569,9 +577,16 @@
 				DCDC1E3E1AC799CF001DC3D9 /* SCVideoPlayerView.h in Headers */,
 				DCDC1E401AC799CF001DC3D9 /* SCSampleBufferHolder.h in Headers */,
 				DCDC1E411AC799CF001DC3D9 /* SCAssetExportSession.h in Headers */,
-				DCDC1E421AC799CF001DC3D9 /* SCAudioTools.h in Headers */,
 				DCDC1E431AC799CF001DC3D9 /* SCRecorderTools.h in Headers */,
 				DCDC1E441AC799CF001DC3D9 /* SCFilter.h in Headers */,
+				08920BE21C117D3000715A95 /* SCFilterAnimation.h in Headers */,
+				08920BE31C117DB600715A95 /* SCContext.h in Headers */,
+				08920BE41C117E1800715A95 /* SCRecorderHeader.h in Headers */,
+				08920BE51C117E8600715A95 /* SCFilterImageView.h in Headers */,
+				08920BEA1C117ED700715A95 /* NSURL+SCSaveToCameraRoll.h in Headers */,
+				08920BEC1C117ED700715A95 /* UIImage+SCSaveToCameraRoll.h in Headers */,
+				08920BED1C117ED700715A95 /* SCFilter+VideoComposition.h in Headers */,
+				08920BEE1C117ED700715A95 /* SCFilter+UIImage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,6 +747,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08EEF3591C312B250064D30A /* SCFilterImageView.m in Sources */,
+				083F16C21C11792000F1DF1C /* SCIOPixelBuffers.m in Sources */,
+				083F16C11C11791200F1DF1C /* SCProcessingQueue.m in Sources */,
 				DCEE378E1B17F3D50019C7B5 /* SCWeakSelectorTarget.m in Sources */,
 				DCEE378F1B17F3D50019C7B5 /* SCFilterAnimation.m in Sources */,
 				DCEE378D1B17F3CA0019C7B5 /* SCContext.m in Sources */,

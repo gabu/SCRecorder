@@ -667,25 +667,25 @@ NSString * const SCRecordSessionDocumentDirectory = @"DocumentDirectory";
     CMTime presentationTime = CMSampleBufferGetPresentationTimeStamp(adjustedBuffer);
     CMTime lastTimeAudio = CMTimeAdd(presentationTime, duration);
 
-    CFRetain(adjustedBuffer);
-    dispatch_async(_audioQueue, ^{
-        if ([_audioInput isReadyForMoreMediaData] && [_audioInput appendSampleBuffer:adjustedBuffer]) {
-            _lastTimeAudio = lastTimeAudio;
-
-            if (!_currentSegmentHasVideo) {
-                _currentSegmentDuration = CMTimeSubtract(lastTimeAudio, _sessionStartTime);
-            }
-
-            //            NSLog(@"Appending audio at %fs (buffer: %fs)", CMTimeGetSeconds(CMSampleBufferGetPresentationTimeStamp(adjustedBuffer)), CMTimeGetSeconds(actualBufferTime));
-            _currentSegmentHasAudio = YES;
-
-            completion(YES);
-        } else {
-            completion(NO);
+    if ([_audioInput isReadyForMoreMediaData] && [_audioInput appendSampleBuffer:adjustedBuffer]) {
+        _lastTimeAudio = lastTimeAudio;
+        
+        if (!_currentSegmentHasVideo) {
+            _currentSegmentDuration = CMTimeSubtract(lastTimeAudio, _sessionStartTime);
         }
-
-        CFRelease(adjustedBuffer);
-    });
+        
+        //            NSLog(@"Appending audio at %fs (buffer: %fs)", CMTimeGetSeconds(CMSampleBufferGetPresentationTimeStamp(adjustedBuffer)), CMTimeGetSeconds(actualBufferTime));
+        _currentSegmentHasAudio = YES;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            completion(YES);
+        });
+    } else {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            completion(NO);
+        });
+    }
+    
+    CFRelease(adjustedBuffer);
 }
 
 - (void)_startSessionIfNeededAtTime:(CMTime)time

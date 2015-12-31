@@ -214,21 +214,36 @@
 
 - (CIImage *)scaleAndResizeCIImage:(CIImage *)image forRect:(CGRect)rect {
     CGSize imageSize = image.extent.size;
+    CGSize rectSize = rect.size;
 
-    CGFloat horizontalScale = rect.size.width / imageSize.width;
-    CGFloat verticalScale = rect.size.height / imageSize.height;
+    CGFloat horizontalScale = rectSize.width / imageSize.width;
+    CGFloat verticalScale = rectSize.height / imageSize.height;
 
     UIViewContentMode mode = self.contentMode;
 
     if (mode == UIViewContentModeScaleAspectFill) {
-        horizontalScale = MAX(horizontalScale, verticalScale);
-        verticalScale = horizontalScale;
+        CGSize fillSize = rectSize;
+        if(verticalScale > horizontalScale) {
+            fillSize.width = rectSize.height / imageSize.height * imageSize.width;
+        } else if(horizontalScale > verticalScale) {
+            fillSize.height = rectSize.width / imageSize.width * imageSize.height;
+        }
+        horizontalScale = verticalScale = fillSize.width / imageSize.width;
     } else if (mode == UIViewContentModeScaleAspectFit) {
-        horizontalScale = MIN(horizontalScale, verticalScale);
-        verticalScale = horizontalScale;
+        CGRect fitRect = AVMakeRectWithAspectRatioInsideRect(imageSize, rect);
+        horizontalScale = verticalScale = fitRect.size.width / imageSize.width;
     }
 
-    return [image imageByApplyingTransform:CGAffineTransformMakeScale(horizontalScale, verticalScale)];
+    CIImage *scaledImage = [image imageByApplyingTransform:CGAffineTransformMakeScale(horizontalScale, verticalScale)];
+    if (mode == UIViewContentModeScaleAspectFill) {
+        CIImage *croppedImage = [scaledImage imageByCroppingToRect:CGRectMake(scaledImage.extent.origin.x + (scaledImage.extent.size.width - rectSize.width) / 2.f,
+                                                                              scaledImage.extent.origin.y + (scaledImage.extent.size.height - rectSize.height) / 2.f,
+                                                                              rectSize.width,
+                                                                              rectSize.height)];
+        return croppedImage;
+    } else {
+        return scaledImage;
+    }
 }
 
 - (void)drawRect:(CGRect)rect {

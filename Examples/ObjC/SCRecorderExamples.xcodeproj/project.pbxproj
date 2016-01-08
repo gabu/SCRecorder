@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		90A0D7DE1BC7367A008F1BB0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90A0D7DD1BC7367A008F1BB0 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
+		08EBB50B1C39FE2000CB6DB9 /* SCVideoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08EBB50A1C39FE2000CB6DB9 /* SCVideoCollectionViewController.m */; };
+		08EBB5171C3A0BDB00CB6DB9 /* SCFilterImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08EBB5161C3A0BDB00CB6DB9 /* SCFilterImageViewController.m */; };
+		90A0D7DE1BC7367A008F1BB0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90A0D7DD1BC7367A008F1BB0 /* Launch Screen.storyboard */; };
 		90D4FBED1BC6DDEC0017748D /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D4FBEC1BC6DDEC0017748D /* Metal.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DC10CF251ACFD082009880C4 /* libSCRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC10CF1E1ACFCF6E009880C4 /* libSCRecorder.a */; };
 		DC1485DD1AFB78F2004896E9 /* a_filter.cisf in Resources */ = {isa = PBXBuildFile; fileRef = DC1485DC1AFB78F2004896E9 /* a_filter.cisf */; };
@@ -69,6 +71,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08EBB5091C39FE2000CB6DB9 /* SCVideoCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCVideoCollectionViewController.h; sourceTree = "<group>"; };
+		08EBB50A1C39FE2000CB6DB9 /* SCVideoCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCVideoCollectionViewController.m; sourceTree = "<group>"; };
+		08EBB5151C3A0BDB00CB6DB9 /* SCFilterImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilterImageViewController.h; sourceTree = "<group>"; };
+		08EBB5161C3A0BDB00CB6DB9 /* SCFilterImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilterImageViewController.m; sourceTree = "<group>"; };
 		90A0D7DD1BC7367A008F1BB0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		90D4FBE71BC6DDE40017748D /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		90D4FBEC1BC6DDEC0017748D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
@@ -139,6 +145,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08EBB5051C39FD0C00CB6DB9 /* SelectVideoVC */ = {
+			isa = PBXGroup;
+			children = (
+				08EBB5091C39FE2000CB6DB9 /* SCVideoCollectionViewController.h */,
+				08EBB50A1C39FE2000CB6DB9 /* SCVideoCollectionViewController.m */,
+				08EBB5151C3A0BDB00CB6DB9 /* SCFilterImageViewController.h */,
+				08EBB5161C3A0BDB00CB6DB9 /* SCFilterImageViewController.m */,
+			);
+			name = SelectVideoVC;
+			sourceTree = "<group>";
+		};
 		DC10CF181ACFCF6E009880C4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +221,7 @@
 		DC7F371118FC2A0D00D54901 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				08EBB5051C39FD0C00CB6DB9 /* SelectVideoVC */,
 				DC34A7D9199D6E6D0001BD08 /* Utils */,
 				DC34A7CD199D66E40001BD08 /* SessionsVC */,
 				DCB69ABD197EE8D900AF667A /* ImageVC */,
@@ -322,11 +340,6 @@
 			attributes = {
 				CLASSPREFIX = SC;
 				LastUpgradeCheck = 0510;
-				TargetAttributes = {
-					DC7F370718FC2A0D00D54901 = {
-						DevelopmentTeam = S9T665AXM4;
-					};
-				};
 			};
 			buildConfigurationList = DC7F370318FC2A0D00D54901 /* Build configuration list for PBXProject "SCRecorderExamples" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -414,9 +427,11 @@
 				DC7F375118FC2AF700D54901 /* SCAudioRecordViewController.m in Sources */,
 				DC7F375518FC2AF700D54901 /* SCTouchDetector.m in Sources */,
 				DC34A7D8199D695F0001BD08 /* SCRecordSessionManager.m in Sources */,
+				08EBB50B1C39FE2000CB6DB9 /* SCVideoCollectionViewController.m in Sources */,
 				DC34A7D5199D67C80001BD08 /* SCSessionTableViewCell.m in Sources */,
 				DC7F375718FC2AF700D54901 /* SCRecorderViewController.m in Sources */,
 				DC34A7D2199D66FA0001BD08 /* SCSessionListViewController.m in Sources */,
+				08EBB5171C3A0BDB00CB6DB9 /* SCFilterImageViewController.m in Sources */,
 				DCB69AB5197EE31300AF667A /* SCEditVideoViewController.m in Sources */,
 				DC7F375418FC2AF700D54901 /* SCImageDisplayerViewController.m in Sources */,
 				DC7F371818FC2A0D00D54901 /* main.m in Sources */,

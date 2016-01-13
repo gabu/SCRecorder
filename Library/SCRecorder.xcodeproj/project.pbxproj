@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08171DAC1C3F973C00EAFC71 /* SCFilter+VideoComposition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079317A1BD2A06700D7D181 /* SCFilter+VideoComposition.m */; };
+		08171DDA1C461DCB00EAFC71 /* SCFilter+UIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9079317E1BD451C200D7D181 /* SCFilter+UIImage.m */; };
 		083F16C11C11791200F1DF1C /* SCProcessingQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD12A9E1B456C5E0064674D /* SCProcessingQueue.m */; };
 		083F16C21C11792000F1DF1C /* SCIOPixelBuffers.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD12AA31B45AA540064674D /* SCIOPixelBuffers.m */; };
 		08920BE21C117D3000715A95 /* SCFilterAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = DC7A62BD1AFA47EC00EAB60C /* SCFilterAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -748,6 +749,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08171DDA1C461DCB00EAFC71 /* SCFilter+UIImage.m in Sources */,
 				08171DAC1C3F973C00EAFC71 /* SCFilter+VideoComposition.m in Sources */,
 				08EEF3591C312B250064D30A /* SCFilterImageView.m in Sources */,
 				083F16C21C11792000F1DF1C /* SCIOPixelBuffers.m in Sources */,

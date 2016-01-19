@@ -90,7 +90,7 @@ static char* ItemChanged = "CurrentItemContext";
 - (void)playReachedEnd:(NSNotification*)notification {
     if (notification.object == self.currentItem) {
         if (_loopEnabled) {
-            [self seekToTime:kCMTimeZero];
+            [self seekToTime:_timeRange.start toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
             if ([self isPlaying]) {
                 [self play];
             }
@@ -322,6 +322,7 @@ static char* ItemChanged = "CurrentItemContext";
 
 - (void)setItem:(AVPlayerItem *)item {
     [self replaceCurrentItemWithPlayerItem:item];
+    _timeRange = CMTimeRangeMake(kCMTimeZero, item.duration);
 }
 
 - (void)setSmoothLoopItemByStringPath:(NSString *)stringPath smoothLoopCount:(NSUInteger)loopCount {
@@ -364,6 +365,12 @@ static char* ItemChanged = "CurrentItemContext";
     } else {
         [self setupDisplayLink];
     }
+}
+
+- (void)setTimeRange:(CMTimeRange)timeRange {
+    _timeRange = timeRange;
+    [self seekToTime:_timeRange.start toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+    self.currentItem.forwardPlaybackEndTime = CMTimeRangeGetEnd(_timeRange);
 }
 
 - (CMTime)itemDuration {

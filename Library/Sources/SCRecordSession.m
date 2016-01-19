@@ -736,9 +736,9 @@ NSString * const SCRecordSessionDocumentDirectory = @"DocumentDirectory";
     }
 }
 
-- (CMTime)_appendTrack:(AVAssetTrack *)track toCompositionTrack:(AVMutableCompositionTrack *)compositionTrack atTime:(CMTime)time withBounds:(CMTime)bounds {
-    CMTimeRange timeRange = track.timeRange;
-    time = CMTimeAdd(time, timeRange.start);
+- (CMTime)_appendTrack:(AVAssetTrack *)track toCompositionTrack:(AVMutableCompositionTrack *)compositionTrack atTime:(CMTime)time withBounds:(CMTime)bounds timeRange:(CMTimeRange)timeRange {
+    
+//    time = CMTimeAdd(time, timeRange.start);
     
     if (CMTIME_IS_VALID(bounds)) {
         CMTime currentBounds = CMTimeAdd(time, timeRange.duration);
@@ -796,7 +796,11 @@ NSString * const SCRecordSessionDocumentDirectory = @"DocumentDirectory";
                     }
                 }
                 
-                videoTime = [self _appendTrack:videoAssetTrack toCompositionTrack:videoTrack atTime:videoTime withBounds:maxBounds];
+                CMTimeRange timeRange = videoAssetTrack.timeRange;
+                if (CMTIMERANGE_IS_VALID(recordSegment.timeRange)) {
+                    timeRange = recordSegment.timeRange;
+                }
+                videoTime = [self _appendTrack:videoAssetTrack toCompositionTrack:videoTrack atTime:videoTime withBounds:maxBounds timeRange:timeRange];
                 maxBounds = videoTime;
             }
             
@@ -812,7 +816,7 @@ NSString * const SCRecordSessionDocumentDirectory = @"DocumentDirectory";
                     }
                 }
                 
-                audioTime = [self _appendTrack:audioAssetTrack toCompositionTrack:audioTrack atTime:audioTime withBounds:maxBounds];
+                audioTime = [self _appendTrack:audioAssetTrack toCompositionTrack:audioTrack atTime:audioTime withBounds:maxBounds timeRange:audioAssetTrack.timeRange];
             }
             
             currentTime = composition.duration;
@@ -842,15 +846,15 @@ NSString * const SCRecordSessionDocumentDirectory = @"DocumentDirectory";
 - (AVAsset *)assetRepresentingSegments {
     __block AVAsset *asset = nil;
     [self dispatchSyncOnSessionQueue:^{
-        if (_segments.count == 1) {
-            SCRecordSessionSegment *segment = _segments.firstObject;
-            asset = segment.asset;
-        } else {
+//        if (_segments.count == 1) {
+//            SCRecordSessionSegment *segment = _segments.firstObject;
+//            asset = segment.asset;
+//        } else {
             AVMutableComposition *composition = [AVMutableComposition composition];
             [self appendSegmentsToComposition:composition];
             
             asset = composition;
-        }
+//        }
     }];
 
     return asset;

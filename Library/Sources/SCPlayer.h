@@ -101,6 +101,8 @@
  */
 @property (strong, nonatomic) SCImageView *__nullable SCImageView;
 
+@property (assign, nonatomic) CMTimeRange timeRange;
+
 /**
  Convenient method to return a new instance of a SCPlayer
  */

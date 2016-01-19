@@ -58,7 +58,11 @@
 }
 
 - (CMTime)duration {
-    return [self asset].duration;
+    if (CMTIMERANGE_IS_VALID(_timeRange)) {
+        return _timeRange.duration;
+    } else {
+        return [self asset].duration;
+    }
 }
 
 - (UIImage *)thumbnail {
@@ -67,7 +71,11 @@
         imageGenerator.appliesPreferredTrackTransform = YES;
         
         NSError *error = nil;
-        CGImageRef thumbnailImage = [imageGenerator copyCGImageAtTime:kCMTimeZero actualTime:nil error:&error];
+        CMTime time = kCMTimeZero;
+        if (CMTIMERANGE_IS_VALID(_timeRange)) {
+            time = _timeRange.start;
+        }
+        CGImageRef thumbnailImage = [imageGenerator copyCGImageAtTime:time actualTime:nil error:&error];
         
         if (error == nil) {
             _thumbnail = [UIImage imageWithCGImage:thumbnailImage];
@@ -85,7 +93,11 @@
         imageGenerator.appliesPreferredTrackTransform = YES;
         
         NSError *error = nil;
-        CGImageRef lastImage = [imageGenerator copyCGImageAtTime:self.duration actualTime:nil error:&error];
+        CMTime time = self.duration;
+        if (CMTIMERANGE_IS_VALID(_timeRange)) {
+            time = CMTimeRangeGetEnd(_timeRange);
+        }
+        CGImageRef lastImage = [imageGenerator copyCGImageAtTime:time actualTime:nil error:&error];
         
         if (error == nil) {
             _lastImage = [UIImage imageWithCGImage:lastImage];

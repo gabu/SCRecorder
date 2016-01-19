@@ -53,6 +53,8 @@
  */
 @property (readonly, nonatomic) BOOL fileUrlExists;
 
+@property (assign, nonatomic) CMTimeRange timeRange;
+
 /**
  Initialize with an URL and an info dictionary
  */

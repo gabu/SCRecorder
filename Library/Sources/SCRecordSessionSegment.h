@@ -70,6 +70,8 @@
  */
 - (void)deleteFile;
 
+- (UIImage *__nullable)thumbnail:(BOOL)noChache;
+
 - (NSDictionary *__nonnull)dictionaryRepresentation;
 
 /**

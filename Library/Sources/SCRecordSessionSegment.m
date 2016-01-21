@@ -66,7 +66,11 @@
 }
 
 - (UIImage *)thumbnail {
-    if (_thumbnail == nil) {
+    return [self thumbnail:NO];
+}
+
+- (UIImage *)thumbnail:(BOOL)noChache {
+    if (_thumbnail == nil || noChache) {
         AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc] initWithAsset:self.asset];
         imageGenerator.appliesPreferredTrackTransform = YES;
         
